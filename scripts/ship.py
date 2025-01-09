@@ -15,9 +15,7 @@ class Ship:
             self.image, (ai_game.screen.get_width()/15, ai_game.screen.get_height()/15))
         self.image = pygame.transform.rotate(self.image, 90)
         self.rect = self.image.get_rect()
-        self.rect.midbottom = self.screen_rect.midbottom
-
-        self.x = float(self.rect.x)
+        self.center_ship()
 
         self.moving_right = False
         self.moving_left = False
@@ -32,3 +30,7 @@ class Ship:
 
     def blitme(self):
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
