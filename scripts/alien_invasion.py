@@ -92,6 +92,7 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.stats.game_active = False
+            print(self.stats.score)
 
     def _update_bullets(self):
         for bullet in self.bullets.copy():
