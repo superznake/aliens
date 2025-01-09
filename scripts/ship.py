@@ -13,7 +13,7 @@ class Ship:
         self.image = pygame.image.load(img_path)
         self.image = pygame.transform.scale(
             self.image, (ai_game.screen.get_width()/15, ai_game.screen.get_height()/15))
-        self.image = pygame.transform.rotate(self.image, 270)
+        self.image = pygame.transform.rotate(self.image, 90)
         self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen_rect.midbottom
 
@@ -23,9 +23,9 @@ class Ship:
         self.moving_left = False
 
     def update(self):
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
-        elif self.moving_left:
+        elif self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed
 
         self.rect.x = self.x
